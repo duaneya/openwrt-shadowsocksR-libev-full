@@ -58,15 +58,18 @@ ShadowsocksR-libev-full for OpenWrt
    ./scripts/feeds update base
    ./scripts/feeds update packages
    ./scripts/feeds install libpcre libopenssl libopenssl libmbedtls
-   wget -P package/feeds/base/mbedtls/patches https://github.com/bettermanbao/lede/raw/lede-17.01.2/package/libs/mbedtls/patches/999-tweak-config-for-shadowsocks.patch
-   
+   ~~wget -P package/feeds/base/mbedtls/patches https://github.com/bettermanbao/lede/raw/lede-17.01.2/package/libs/mbedtls/patches/999-tweak-config-for-shadowsocks.patch~~
+   git clone https://github.com/shadowsocks/openwrt-feeds.git package/feeds_
+  
+   # 将   feeds_与feeds合并
    # git clone openwrt-shadowsocksR-libev-full
    git clone -b master https://github.com/bettermanbao/openwrt-shadowsocksR-libev-full.git package/shadowsocksR-libev-full
    
    # 选择要编译的包 Network -> shadowsocksr-libev
    make menuconfig
    
-   # 开始编译
+   #将release的shadowsocksR-libev-v20170613-1pre.tar.gz copy 到dl 文件夹
+   # 开始编译
    make package/shadowsocksR-libev-full/compile V=s
    
    ```
